@@ -29,8 +29,6 @@ public class Question1 {
 		for(int i=0;i<nums.length;i++) {
 			int innerMax=0;
 			for(int j=i;j<nums.length;j++) {
-				if(i==0&&j==nums.length-1)
-					break;
 				innerMax+=nums[j];
 				if(max<innerMax) {
 					max=innerMax;
