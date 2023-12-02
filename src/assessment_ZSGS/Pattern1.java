@@ -13,36 +13,36 @@ public class Pattern1 {
 		while (num<=(((n*n)-n)/2)+n) {
 			for(int i=rowStart;i<=rowEnd;i++) {
 				for(int j=colStart;j<=colEnd;j++) {
-					if(i==j-cross) {
+					if(i-cross==j) {
 						res[i][j]=""+num++;
 					}
 				}
 			}
 			cross++;
-			colStart=colStart==0?colStart+1:colStart+2;
-			rowEnd=rowEnd==n-1?rowEnd-1:rowEnd-2;
-			if(num<=(((n*n)-n)/2)+n) {
-				for(int i=rowEnd;i>=rowStart;i--) {
-					res[i][colEnd]=""+num++;
-				}
-				colEnd--;
-			}
+			rowStart=rowStart==0?rowStart+1:rowStart+2;
+			colEnd=colEnd==n-1?colEnd-1:colEnd-2;
 			if(num<=(((n*n)-n)/2)+n) {
 				for(int i=colEnd;i>=colStart;i--) {
-					res[rowStart][i]=""+num++;
+					res[rowEnd][i]=""+num++;
 				}
-				rowStart++;
+				rowEnd--;
+			}
+			if(num<=(((n*n)-n)/2)+n) {
+				for(int i=rowEnd;i>=rowStart;i--) {
+					res[i][colStart]=""+num++;
+				}
+				colStart++;
 			}
 		}
 		for(int i=0;i<n;i++) {
 			for(int j=0;j<n;j++) {
 				if(res[i][j]!=null) {
 					if(res[i][j].length()>1)
-					System.out.print(res[i][j]);
+					System.out.print(" "+res[i][j]);
 					else
-						System.out.print(" "+res[i][j]);
+						System.out.print("  "+res[i][j]);
 				}else {
-					System.out.print("  ");
+					System.out.print("   ");
 				}
 			}
 			System.out.println("");

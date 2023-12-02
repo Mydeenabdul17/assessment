@@ -15,14 +15,16 @@ public class Pattern2 {
 		int letter=0;
 		while(letter<input.length()) {
 			for(int i=0;i<n;i++) {
-				if(letter<input.length())
+				if(letter<input.length()) {
 				res[i]+=input.charAt(letter++);
+				res[i]+=" ";
+				}
 				else {
-					res[i]+=" ";
+					res[i]+="  ";
 				}
 				if(i==0||i==n-1) {
 					for(int j=0;j<n-2;j++) {
-						res[i]+=" ";
+						res[i]+="  ";
 					}
 				}
 			}
@@ -30,8 +32,9 @@ public class Pattern2 {
 				for(int j=1;j<n-1;j++) {
 					if(i+j==n-1&&letter<input.length()) {
 						res[i]+=input.charAt(letter++);
-					}else {
 						res[i]+=" ";
+					}else {
+						res[i]+="  ";
 					}
 				}
 			}
