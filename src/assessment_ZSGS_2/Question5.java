@@ -14,20 +14,38 @@ public class Question5 {
 		System.out.println("Enter the matrix column value");
 		int n = sc.nextInt();
 		int[][] res = new int[2][2];
-		if (!isContains(s1, key)) {
+		if (!isContains(s1, key,n)) {
 			System.out.println("the key is not there at String");
 		} else {
+			boolean b=true;
 			for (int i = 0; i <= s1.length() - key.length(); i++) {
 				String s = "";
 				for (int j = i; j < i + key.length(); j++) {
 					s += s1.charAt(j);
 				}
 				if (s.equals(key)) {
+					b=false;
 					res[0][0] = i / n;
 					res[0][1] = (i % n) ;
 					res[1][0] = (i + key.length() - 1) / n;
 					res[1][1] = ((i + key.length() - 1) % n);
 					break;
+				}
+			}
+			if(b) {
+				for (int i = 0; i <= s1.length() - key.length(); i++) {
+					String s = "";
+					for (int j = i; j <= i+(n*2); j+=n) {
+						if(j<s1.length())
+						s += s1.charAt(j);
+					}
+					if (s.equals(key)) {
+						res[0][0] = i / n;
+						res[0][1] = (i % n) ;
+						res[1][0] = (i +(n*2)) / n;
+						res[1][1] = ((i + (n*2)) % n);
+						break;
+					}
 				}
 			}
 
@@ -39,7 +57,8 @@ public class Question5 {
 
 	
 	//function to find whether the String contains the key string
-	private static boolean isContains(String s1, String key) {
+	private static boolean isContains(String s1, String key,int n) {
+		boolean b=true;
 		for (int i = 0; i <= s1.length() - key.length(); i++) {
 			String s = "";
 			for (int j = i; j < i + key.length(); j++) {
@@ -47,6 +66,19 @@ public class Question5 {
 			}
 			if (s.equals(key)) {
 				return true;
+				
+			}
+		}
+		if(b) {
+			for (int i = 0; i <= s1.length() - key.length(); i++) {
+				String s = "";
+				for (int j = i; j <= i+(n*2); j+=n) {
+					if(j<s1.length())
+					s += s1.charAt(j);
+				}
+				if (s.equals(key)) {
+					return true;
+				}
 			}
 		}
 		return false;

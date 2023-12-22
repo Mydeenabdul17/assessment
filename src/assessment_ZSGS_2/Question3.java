@@ -1,6 +1,5 @@
 package assessment_ZSGS_2;
 
-import java.util.Arrays;
 import java.util.Scanner;
 
 public class Question3 {
@@ -43,7 +42,6 @@ public class Question3 {
 		String words[]=toArray(text);
 		String[][]frequency=new String[numberOfUniqueWords(text)][2];
 		String res="";
-		int arrCount=0;
 		for(int i=0,in=0;i<words.length;i++) {
 			int count=1;
 			if(!words[i].equals(" ")) {
