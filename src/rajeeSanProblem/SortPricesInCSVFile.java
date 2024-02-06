@@ -29,29 +29,29 @@ public class SortPricesInCSVFile {
         }
     }
 	public static List<Integer> readAndSortCSV(String fileName) {
-        List<Integer> numbers = new ArrayList<>();
+        List<Integer> prices = new ArrayList<>();
         try (BufferedReader reader = new BufferedReader(new FileReader(fileName))) {
             String line;
             while ((line = reader.readLine()) != null) {
-                numbers.add(Integer.parseInt(line));
+                prices.add(Integer.parseInt(line));
             }
         } catch (IOException | NumberFormatException e) {
             System.err.println("Error reading from CSV file: " + e.getMessage());
         }
 
         // Sort numbers in descending order
-        Collections.sort(numbers, Collections.reverseOrder());
+        Collections.sort(prices, Collections.reverseOrder());
 
-        return numbers;
+        return prices;
     }
 	public static void readCSV(String fileName) {
-		List<Integer> numbers = new ArrayList<>();
+		List<Integer> prices = new ArrayList<>();
         try (BufferedReader reader = new BufferedReader(new FileReader(fileName))) {
             String line;
             while ((line = reader.readLine()) != null) {
-                numbers.add(Integer.parseInt(line));
+                prices.add(Integer.parseInt(line));
             }
-            System.out.println(numbers);
+            System.out.println(prices);
         } catch (IOException | NumberFormatException e) {
             System.err.println("Error reading from CSV file: " + e.getMessage());
         }
